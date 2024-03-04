@@ -1,49 +1,47 @@
 ﻿
-        // Запрашиваем у пользователя ввод элементов массива
+        // Запрос у пользователя ввода элементов массива
         Console.WriteLine("Введите элементы массива через пробел:");
         string[] inputArray = Console.ReadLine().Split();
 
-        // Создаем новый массив строк
+        //Создание нового массива
         string[] resultArray = FilterArray(inputArray);
 
-        // Выводим результат
-        Console.WriteLine("Результат: ");
-        foreach (string item in resultArray)
+        Console.WriteLine("Результат:");
+        for (int i = 0; i < resultArray.Length; i++)
         {
-            Console.Write(item + " ");
+            Console.Write(resultArray[i] + " ");
         }
 
-        // Console.ReadLine(); // Пауза для просмотра результата, добавила для себя.
-   
+        //Console.ReadLine(); // Чтобы консольное окно не закрылось сразу
+    
 
-    //Определяем метод для формирования нового массива
+    //Определение метода для формирования нового массива
     static string[] FilterArray(string[] inputArray)
     {
-        // Подсчет количества строк, удовлетворяющих условию
+        //Подсчет количества строк, удовлетворяющих условию
         int count = 0;
-        foreach (string item in inputArray)
+        for (int i = 0; i < inputArray.Length; i++)
         {
-            if (item.Length <= 3)
+            if (inputArray[i].Length <= 3)
             {
                 count++;
             }
         }
 
-        // Создаем новый массив с учетом подсчитанного количества строк
+        //Создание нового массива с учетом подсчитанного количества строк
         string[] resultArray = new string[count];
         int index = 0;
 
-        //Заполняем новый массив строками, удовлетворяющие наши условия
-        foreach (string item in inputArray)
+        //Заполнение нового массива строками, удовлетворяющими условию
+        for (int i = 0; i < inputArray.Length; i++)
         {
-            if (item.Length <= 3)
+            if (inputArray[i].Length <= 3)
             {
-                resultArray[index] = item;
+                resultArray[index] = inputArray[i];
                 index++;
             }
         }
 
-        //Возвращаем результат массива
+
         return resultArray;
     }
-
